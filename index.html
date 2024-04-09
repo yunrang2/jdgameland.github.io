@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게임 사이트</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script> <!-- JavaScript 파일 연결 -->
+</head>
+<body>
+  <header class="header">
+    <img src="https://raw.githubusercontent.com/yunrang2/upload/master/game%20land.png" alt="게임 사이트 이미지" class="background-image">
+</header>
+<div class="nickname-container">
+  <input type="text" id="nickname" name="nickname" placeholder="닉네임을 입력하세요">
+  <div class="gender-container">
+      <label for="gender">성별:</label>
+      <input type="radio" id="female" name="gender" value="female" checked>
+      <label for="female">여자</label>
+      <input type="radio" id="male" name="gender" value="male">
+      <label for="male">남자</label>
+  </div>
+  <button onclick="checkNickname()">접속하기</button>
+</div>
+
+    <main>
+      <p style="font-size: 24px;">닉네임을 입력하셔야 접속하실 수 있습니다.</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 게임 사이트</p>
+    </footer>
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <p id="popup-text">닉네임: <span id="popup-nickname"></span> 성별: <span id="popup-gender"></span></p>
+      <p id="popup-text">입력한 닉네임과 성별로 접속하시겠습니까?</p>
+      <button onclick="confirmConnect()">네</button>
+      <button onclick="closePopup()">다시 선택</button>
+  </div>
+  </div>
+</body>
+</html>

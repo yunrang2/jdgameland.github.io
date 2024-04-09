@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <img src="https://raw.githubusercontent.com/yunrang2/upload/master/game%20land.png" alt="게임 사이트 이미지" class="background-image">
+        <nav class="menu">
+            <ul>
+                <li><a href="#">카드게임</a></li>
+                <li><a href="#">보드게임</a></li>
+                <li><a href="#">캐주얼게임</a></li>
+                <li><a href="#">포인트 충전</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- 내 정보 및 아바타 -->
+        <div class="my-info">
+            <h2>내 정보</h2>
+            <div class="avatar-container">
+              <p>닉네임: <span id="nickname"></span></p>
+              <p>성별: <span id="gender"></span></p>
+              <p>포인트: <span id="myPoint"></span></p>
+              <img id="avatar" src="" alt="아바타">
+            </div>
+          </div>
+          
+    </main>
+    <footer>
+        <p>&copy; 2024 게임 사이트</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var nickname = localStorage.getItem("nickname");
+            var gender = localStorage.getItem("gender");
+            if (nickname && gender) {
+                document.getElementById("nickname").textContent = nickname;
+                document.getElementById("gender").textContent = gender;
+
+                // 아바타 이미지 설정
+                var avatarImg = document.getElementById("avatar");
+                if (gender === "male") {
+                    avatarImg.src = "https://raw.githubusercontent.com/yunrang2/upload/master/남냥.png";
+                } else if (gender === "female") {
+                    avatarImg.src = "https://raw.githubusercontent.com/yunrang2/upload/master/여냥.png";
+                }
+            }
+        });
+
+        // 포인트 초기값 설정 (5000p)
+var initialPoints = 5000;
+
+// 페이지가 로드될 때 포인트를 확인하고, 없는 경우 초기값으로 설정
+document.addEventListener("DOMContentLoaded", function() {
+  var initialPoints = 5000; // 초기 포인트 값
+  var currentPoints = localStorage.getItem("points");
+  if (!currentPoints) {
+    localStorage.setItem("points", initialPoints);
+    currentPoints = initialPoints;
+  }
+  
+  // 화면에 포인트를 표시
+  document.getElementById("myPoint").textContent = currentPoints + "p";
+});
+
+// 포인트를 증가시키는 함수
+function increasePoints(amount) {
+  var currentPoints = parseInt(localStorage.getItem("points"));
+  currentPoints += amount;
+  localStorage.setItem("points", currentPoints);
+  document.getElementById("myPoint").textContent = currentPoints + "p";
+}
+
+// 포인트 갱신 함수
+function updatePoints(points) {
+  var currentPoints = localStorage.getItem("points");
+  currentPoints = parseInt(currentPoints) + points;
+  localStorage.setItem("points", currentPoints);
+  
+  // 화면에 갱신된 포인트를 표시
+  document.getElementById("myPoint").textContent = currentPoints + "p";
+}
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
