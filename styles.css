@@ -168,6 +168,29 @@ body {
   font-family: 'Yeongdeok Snow Crab', Arial, sans-serif;
 }
 
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"],
+.input-group input[type="email"],
+.input-group select {
+  width: calc(100% - 110px); /* 입력창 너비를 계산하여 버튼을 고려하여 조절합니다 */
+}
+
+.input-group button {
+  position: absolute;
+  font-family: 'Yeongdeok Snow Crab', Arial, sans-serif;
+  top: 70%;
+  right: 5;
+  transform: translateY(-50%);
+  width: 80px; /* 버튼의 너비를 조절합니다 */
+  height: 30px; /* 버튼의 높이를 조절합니다 */
+  padding: 5px; /* 내부 여백을 추가하여 버튼의 크기를 조절합니다 */
+}
+
 /* ID/PW 찾기 팝업 스타일 */
 #forgot-password-popup {
   display: none;
