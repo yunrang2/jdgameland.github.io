@@ -58,6 +58,59 @@ document.getElementById("signup-popup-form").addEventListener("submit", function
   });
 });
 
+// 아이디 중복 확인 버튼 클릭 이벤트 처리
+document.getElementById("check-username").addEventListener("click", function(event) {
+  event.preventDefault();
+  const username = document.getElementById("signup-username").value;
+  if (!username) {
+      alert("아이디를 입력해주세요.");
+      return;
+  }
+  // 서버로 아이디 중복 확인 요청 보냄
+  fetch("/check-username", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ username: username })
+  })
+  .then(response => response.json())
+  .then(data => {
+      alert(data.message);
+  })
+  .catch(error => {
+      console.error("Error:", error);
+      alert("서버 오류가 발생했습니다.");
+  });
+});
+
+// 이메일 중복 확인 버튼 클릭 이벤트 처리
+document.getElementById("check-email").addEventListener("click", function(event) {
+  event.preventDefault();
+  const email = document.getElementById("signup-email").value;
+  if (!email) {
+      alert("이메일을 입력해주세요.");
+      return;
+  }
+  // 서버로 이메일 중복 확인 요청 보냄
+  fetch("/check-email", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email: email })
+  })
+  .then(response => response.json())
+  .then(data => {
+      alert(data.message);
+  })
+  .catch(error => {
+      console.error("Error:", error);
+      alert("서버 오류가 발생했습니다.");
+  });
+});
+
+
 // ID/PW 찾기 팝업 열기
 document.getElementById("forgot-password").addEventListener("click", function(event) {
   event.preventDefault();
