@@ -5,37 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게임 사이트</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script> <!-- JavaScript 파일 연결 -->
 </head>
 <body>
-  <header class="header">
-    <img src="https://raw.githubusercontent.com/yunrang2/upload/master/game%20land.png" alt="게임 사이트 이미지" class="background-image">
-</header>
-<div class="nickname-container">
-  <input type="text" id="nickname" name="nickname" placeholder="닉네임을 입력하세요">
-  <div class="gender-container">
-      <label for="gender">성별:</label>
-      <input type="radio" id="female" name="gender" value="female" checked>
-      <label for="female">여자</label>
-      <input type="radio" id="male" name="gender" value="male">
-      <label for="male">남자</label>
-  </div>
-  <button onclick="checkNickname()">접속하기</button>
-</div>
+    <header class="header">
+        <img src="https://raw.githubusercontent.com/yunrang2/upload/master/game%20land.png" alt="게임 사이트 이미지" class="background-image">
+    </header>
+    <p style="font-size: 36px;">로그인 하셔야 접속하실 수 있습니다.</p>
+    <div class="login-container">
+        <form action="#">
+            <h2>로그인</h2>
+            <div class="input-group">
+                <label for="username">아이디</label>
+                <input type="text" id="username" name="username" placeholder="아이디를 입력하세요">
+            </div>
+            <div class="input-group">
+                <label for="password">비밀번호</label>
+                <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요">
+            </div>
+            <button type="submit">로그인</button>
+        </form>
+        <div class="additional-links">
+            <a href="#" id="signup-link">회원가입</a>
+            <span>|</span>
+            <a href="#" id="forgot-password">ID/PW 찾기</a>
+        </div>
+    </div>
+    <div id="signup-popup" class="popup">
+      <div class="popup-content">
+          <h2>회원가입</h2>
+          <form id="signup-popup-form">
+              <div class="input-group">
+                  <label for="signup-username">아이디</label>
+                  <input type="text" id="signup-username" name="signup-username" placeholder="아이디를 입력하세요">
+              </div>
+              <div class="input-group">
+                  <label for="signup-password">비밀번호</label>
+                  <input type="password" id="signup-password" name="signup-password" placeholder="비밀번호를 입력하세요">
+              </div>
+              <div class="input-group">
+                  <label for="signup-password-confirm">비밀번호 확인</label>
+                  <input type="password" id="signup-password-confirm" name="signup-password-confirm" placeholder="비밀번호를 다시 입력하세요">
+              </div>
+              <div class="input-group">
+                  <label for="signup-email">이메일</label>
+                  <input type="email" id="signup-email" name="signup-email" placeholder="이메일을 입력하세요 (ID/PW를 찾기위해)">
+              </div>
+              <div class="input-group">
+                  <label for="signup-gender">성별</label>
+                  <select id="signup-gender" name="signup-gender">
+                      <option value="male">남성</option>
+                      <option value="female">여성</option>
+                  </select>
+              </div>
+              <button type="submit">가입하기</button>
+          </form>
+          <button id="close-signup">닫기</button>
+      </div>
+    </div>
+    <div id="forgot-password-popup" class="popup">
+      <div class="popup-content">
+          <h2>ID/PW 찾기</h2>
+          <form id="forgot-password-form">
+              <div class="input-group">
+                  <label for="forgot-password-email">이메일</label>
+                  <input type="email" id="forgot-password-email" name="forgot-password-email" placeholder="등록한 이메일을 입력하세요">
+              </div>
+              <button type="submit">찾기</button>
+          </form>
+          <button id="close-forgot-password">닫기</button>
+      </div>
+    </div>
 
-    <main>
-      <p style="font-size: 24px;">닉네임을 입력하셔야 접속하실 수 있습니다.</p>
-    </main>
     <footer>
-        <p>&copy; 2024 게임 사이트</p>
+        <p>&copy; 2024 JD`s Game Land</p>
     </footer>
-<div id="popup" class="popup">
-  <div class="popup-content">
-    <p id="popup-text">닉네임: <span id="popup-nickname"></span> 성별: <span id="popup-gender"></span></p>
-      <p id="popup-text">입력한 닉네임과 성별로 접속하시겠습니까?</p>
-      <button onclick="confirmConnect()">네</button>
-      <button onclick="closePopup()">다시 선택</button>
-  </div>
-  </div>
+
+    <script src="script.js"></script> <!-- JavaScript 파일 연결 -->
 </body>
 </html>
